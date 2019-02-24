@@ -1,0 +1,128 @@
+body {
+    display: block;
+    margin: 0px;
+}
+
+img {
+    width: 100%;
+}
+
+#wrapper-two div,#wrapper div{
+  position: absolute;
+}
+
+#top-date{
+    top: 25%;
+    left: 44.3%;
+    font-size: 13px;
+    background-color: #F3F7F8;
+    color: #ACBFD0;
+    width: 15%;
+}
+#bottom-date{
+    bottom: 12%;
+    right: 6%;
+    font-size: 13px;
+    background-color: #5E8B9D;
+    color: #ACBFD0; 
+}
+div#order-no {
+    top: 54.5%;
+    left: 27.3%;
+    font-weight: 700;
+    font-size: 19px;
+    background-color: #FFFFFF;
+    width: 14%;
+}
+div#paid-on-date {
+    top: 37%;
+    left: 36.8%;
+    font-size: 14px;
+    background-color: #5E8B9D;
+    color: #FFFFFF;
+}
+div#main-date {
+    top: 64.5%;
+    left: 27%;
+    font-weight: 700;
+    font-size: 19px;
+    background-color: #FFFFFF;
+}
+
+div#use-it {
+    bottom: 18%;
+    height: 15%;
+    width: 93%;
+}
+div#get-order-no {
+    top: 0%;
+    height: 15%;
+    width: 93%;
+}
+
+img#use-now-pop-up {
+    position: absolute;
+    top: 40%;
+    width: 88%;
+    left: 6%;
+}
+div#dim-the-screen {
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.7;
+}
+.hide{
+  display: none !important;
+}
+
+
+
+
+
+#top-date-two {
+    top: 22.5%;
+    right: 9%;
+    font-size: 18px;
+    background-color: #FAF9F0;
+    color: #000;
+    width: 19%;
+    font-weight: bold;
+}
+#bottom-date-two{
+    top: 20.3%;
+    right: 10%;
+    font-size: 13px;
+    background-color: #FAF9F0;
+    color: #000;
+    font-weight: 800;
+}
+div#order-no-two {
+    top: 21.7%;
+    left: 9%;
+    font-weight: 700;
+    font-size: 19px;
+    background-color: #FAF9F0;
+}
+
+div#time-count {
+    color: #EA5555;
+    bottom: 2%;
+    left: 38%;
+    font-size: 44px;
+    width: 26%;
+    background-color: #403B3B;
+}
+
+@keyframes mymove-logo {
+    from {transform: rotateY(0deg);}
+    to {transform: rotateY(360deg);;}
+}
+
+#goodbox-logo{
+    position: absolute;
+    animation: mymove-logo 3s infinite;
+    top: 9%;
+    width: 11%;
+    right: 11%;
+}
