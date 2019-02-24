@@ -163,7 +163,11 @@ function navigate(lat, lng) {
       window.location = protocol + 'maps.apple.com/maps?daddr=' + lat + ',' + lng + '&amp;ll=';
     }
     else {
-      window.open('http://maps.google.com?daddr=' + lat + ',' + lng + '&amp;ll=');
+    //   window.open('http://maps.google.com?daddr=' + lat + ',' + lng + '&amp;ll=');
+        var url = 'http://maps.google.com?daddr=' + lat + ',' + lng + '&amp;ll=';
+
+        var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
+        window.open(url, 'popup', windowSize);
     }
   }
 
