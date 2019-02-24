@@ -123,22 +123,49 @@ function startTimer(duration, display) {
 
 
 $("#dynamic-submit").click(function(){
-    dynamic_name = $("#dynamic-name").val();
-    dynamic_price = $("#dynamic-price").val();
-    dynamic_counter = $("#dynamic-counter").val();
-    dynamic_quantity = $("#dynamic-quantity").val();
-    dynamic_price = parseInt(dynamic_price) * parseInt(dynamic_quantity);
-    $("#wrapper").removeClass("hide");
-    $("#dynamic-form").addClass("hide");
+    var counter_type_gb = $("#dynamic-counter-type").val().split(",");
+    navigate( counter_type_gb[0], counter_type_gb[1] );
+    // dynamic_name = $("#dynamic-name").val();
+    // dynamic_price = $("#dynamic-price").val();
+    // dynamic_counter = $("#dynamic-counter").val();
+    // dynamic_quantity = $("#dynamic-quantity").val();
+    // dynamic_price = parseInt(dynamic_price) * parseInt(dynamic_quantity);
+    // $("#wrapper").removeClass("hide");
+    // $("#dynamic-form").addClass("hide");
 
-    $("#item-price-next,#item-price-next-2").html( "&#x20b9; "+dynamic_price);
-    $("#item-price").html( dynamic_price);
-    $("#item-name").html(dynamic_name +" x "+dynamic_quantity);
-    $("#item-name-next").html(dynamic_name);
-    $("#item-counter").html(dynamic_counter);
-    $("#item-counter-next").html(dynamic_counter.substring(8));
-    $("#item-quntity-next").html("x "+dynamic_quantity);
+    // $("#item-price-next,#item-price-next-2").html( "&#x20b9; "+dynamic_price);
+    // $("#item-price").html( dynamic_price);
+    // $("#item-name").html(dynamic_name +" x "+dynamic_quantity);
+    // $("#item-name-next").html(dynamic_name);
+    // $("#item-counter").html(dynamic_counter);
+    // $("#item-counter-next").html(dynamic_counter.substring(8));
+    // $("#item-quntity-next").html("x "+dynamic_quantity);
 });
+
+function navigate(lat, lng) {
+    // If it's an iPhone..
+    if ((navigator.platform.indexOf("iPhone") !== -1) || (navigator.platform.indexOf("iPod") !== -1)) {
+      function iOSversion() {
+        if (/iP(hone|od|ad)/.test(navigator.platform)) {
+          // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
+          var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+          return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+        }
+      }
+      var ver = iOSversion() || [0];
+
+      if (ver[0] >= 6) {
+        protocol = 'maps://';
+      } else {
+        protocol = 'http://';
+
+      }
+      window.location = protocol + 'maps.apple.com/maps?daddr=' + lat + ',' + lng + '&amp;ll=';
+    }
+    else {
+      window.open('http://maps.google.com?daddr=' + lat + ',' + lng + '&amp;ll=');
+    }
+  }
 
 
 
