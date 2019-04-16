@@ -230,3 +230,33 @@ ul.ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
     background-image: url(zeta_inter.png);
     background-size: cover;
 }
+
+
+
+
+
+.wrap {
+    width: 331px;
+    height: 21px;
+    background: transparent;
+    position: relative;
+    border-radius: 60px;
+    margin-left: 15px;
+    margin-top: -32px;
+}
+
+.box {
+    width: 21px;
+    height: 21px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.ptag {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -153,11 +153,11 @@ $("#close_order_frm").click(function(){
     $("#init-form").removeClass("hide");
 });
 
-$("#close_inter_frm").click(function(){
-    $("#init-form").addClass("hide");
-    $(".z_form").addClass("hide");
-    $($(".z_form")[0]).removeClass("hide");
-});
+// $("#close_inter_frm").click(function(){
+//     $("#init-form").addClass("hide");
+//     $(".z_form").addClass("hide");
+//     $($(".z_form")[0]).removeClass("hide");
+// });
 
 
 
@@ -211,3 +211,38 @@ function onConfirmQuit(button){
      navigator.app.exitApp(); 
    }
 }
+
+
+
+Draggable.create('.box', {
+    type: 'x',
+    edgeResistance: 1,
+    bounds: '.wrap',
+    lockAxis: true,
+    throwProps: true,
+    snap: {
+        x: function(endValue) {
+            var num;
+                    
+            if (endValue > 240) {
+                num = 280; // width of box
+            } else {
+                num = 0;
+            }
+            
+            return num;
+        }
+    },
+    onDrag: function() {
+        console.log(this.x);
+        if(this.x > 300) {
+            if($($(".z_form")[0]).hasClass("hide")){
+                $("#init-form").addClass("hide");
+                $(".z_form").addClass("hide");
+                $($(".z_form")[0]).removeClass("hide");
+            }
+        }
+    }
+});
+
+
