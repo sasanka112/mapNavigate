@@ -22,7 +22,7 @@ var current_year = currentdate.getFullYear();
 
 
 
-var monthNames = ["Jan", "Feb", "March", "April", "May", "June",
+var monthNames = ["Jan", "Feb", "March", "Apr", "May", "June",
   "July", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
 
@@ -30,11 +30,11 @@ var mnth_name  = monthNames[currentdate.getMonth()];
 
 var current_day = currentdate.getDate();
 
+console.log(mnth_name +"--" + current_day)
 
+$(".current_date").html(current_day+" "+mnth_name);
 
-$("#top-date,#top-date-two").html(current_day+" "+mnth_name);
-
-$("#bottom-date,#bottom-date-two").html(current_time);
+$(".current_time").html(current_time);
 
 $("#order-no,#order-no-two").html("117");
 
@@ -98,7 +98,7 @@ $("#use-now-pop-up").click(function(){
         $("body").addClass("image-chat-pay");
     }
     else
-        $("body").addClass("image-sodexo");
+        $("body").addClass("image-zeta");
 });
 
 
@@ -122,54 +122,42 @@ function startTimer(duration, display) {
 }
 
 
-$("#dynamic-submit").click(function(){
-    var counter_type_gb = $("#dynamic-counter-type").val().split(",");
-    navigate( counter_type_gb[0], counter_type_gb[1] );
-    // dynamic_name = $("#dynamic-name").val();
-    // dynamic_price = $("#dynamic-price").val();
-    // dynamic_counter = $("#dynamic-counter").val();
-    // dynamic_quantity = $("#dynamic-quantity").val();
-    // dynamic_price = parseInt(dynamic_price) * parseInt(dynamic_quantity);
-    // $("#wrapper").removeClass("hide");
-    // $("#dynamic-form").addClass("hide");
+$("#init-submit").click(function(){
+    dynamic_counter = $("#counter_name").val();
+    dynamic_name = $("#item_name").val();
+    dynamic_quantity = $("#count_name").val();
+    dynamic_price = $("#price_name").val();
+    if(isNaN(parseInt(dynamic_quantity))){
+        dynamic_quantity = 1;
+    }
+    dynamic_price = parseInt(dynamic_price) * parseInt(dynamic_quantity);
 
-    // $("#item-price-next,#item-price-next-2").html( "&#x20b9; "+dynamic_price);
-    // $("#item-price").html( dynamic_price);
-    // $("#item-name").html(dynamic_name +" x "+dynamic_quantity);
-    // $("#item-name-next").html(dynamic_name);
-    // $("#item-counter").html(dynamic_counter);
-    // $("#item-counter-next").html(dynamic_counter.substring(8));
-    // $("#item-quntity-next").html("x "+dynamic_quantity);
+    $("#init-form").addClass("hide");
+    $(".z_form").addClass("hide");
+    $($(".z_form")[1]).removeClass("hide");
+    $(".z_total_price").html("&#8377; " + dynamic_price);
+
+    $(".z_counter_name").html(dynamic_counter);
+    $(".z_item_name").html(dynamic_name);
+    $(".z_count_no").html(dynamic_quantity);
+
+    $(".z_token_no").html(Math.floor(Math.random()*9000) + 1000);
+    $(".z_pin_number").html("PIN: 1116688" + (Math.floor(Math.random()*9000) + 1000));
 });
 
-function navigate(lat, lng) {
-    // If it's an iPhone..
-    if ((navigator.platform.indexOf("iPhone") !== -1) || (navigator.platform.indexOf("iPod") !== -1)) {
-      function iOSversion() {
-        if (/iP(hone|od|ad)/.test(navigator.platform)) {
-          // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
-          var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-          return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
-        }
-      }
-      var ver = iOSversion() || [0];
 
-      if (ver[0] >= 6) {
-        protocol = 'maps://';
-      } else {
-        protocol = 'http://';
 
-      }
-      window.location = protocol + 'maps.apple.com/maps?daddr=' + lat + ',' + lng + '&amp;ll=';
-    }
-    else {
-    //   window.open('http://maps.google.com?daddr=' + lat + ',' + lng + '&amp;ll=');
-        var url = 'http://maps.google.com?daddr=' + lat + ',' + lng + '&amp;ll=';
 
-        var windowSize = "width=" + window.innerWidth + ",height=" + window.innerHeight + ",scrollbars=no";
-        window.open(url, 'popup', windowSize);
-    }
-  }
+$("#close_order_frm").click(function(){
+    $(".z_form").addClass("hide");
+    $("#init-form").removeClass("hide");
+});
+
+$("#close_inter_frm").click(function(){
+    $("#init-form").addClass("hide");
+    $(".z_form").addClass("hide");
+    $($(".z_form")[0]).removeClass("hide");
+});
 
 
 
@@ -217,17 +205,6 @@ $('body').on('click', '#ui-id-5 li', function() {
     }
 });
 
-
-
-
-document.addEventListener("backbutton",function(){ 
-    navigator.notification.confirm(
-           'Do you want to quit', 
-           onConfirmQuit, 
-           'QUIT TITLE', 
-           'OK,Cancel'  
-    );
-}, true);
 
 function onConfirmQuit(button){
    if(button == "1"){

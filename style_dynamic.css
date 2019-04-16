@@ -219,40 +219,14 @@ ul.ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
 
 
 
-div#dynamic-form * {
-    margin: 0 auto;
-    display: table;
-    margin-top: 10%;
-    font-size: 20px;
-    width: 80%;
-}
 
 
-.image-sodexo{
-    background-image: url(sodexo.png);
+
+.image-zeta{
+    background-image: url(zeta_order.png);
     background-size: cover;
 }
-.image-ovenfresh{
-    background-image: url(ovenfresh.png);
-    background-size: cover;
-}
-.image-chats{
-    background-image: url(chats.png);
-    background-size: cover;
-}
-.image-viva{
-    background-image: url(viva.png);
-    background-size: cover;
-}
-.image-ovenfresh-pay{
-    background-image: url(ovenfresh-pay.png);
-    background-size: cover;
-}
-.image-ke-food{
-    background-image: url(ke_foods.png);
-    background-size: cover;
-}
-.image-chat-pay{
-    background-image: url(chat-pay.png);
+.image-inter-zeta{
+    background-image: url(zeta_inter.png);
     background-size: cover;
 }
